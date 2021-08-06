@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import HeaderFunctionBased from "./components/HeaderFunctionBased";
+import HeaderClassBased from "./components/HeaderClassBased";
 
+
+//Function based component
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="container">
+            <HeaderFunctionBased title={'Task Tracer'}/>
+            {/*<HeaderClassBased/>*/}
+        </div>
+    );
 }
 
 export default App;
