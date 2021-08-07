@@ -1,11 +1,18 @@
 import PropTypes from 'prop-types'
+import Button from "./Button";
 
 //Function base component
 const HeaderFunctionBased = (props) => {
+
+
+    const onClick = () => {
+        console.log("click");
+    }
+
     return (
         <header className="header">
             <h1>{props.title}</h1>
-            <button className="btn">Add</button>
+            <Button color="black" text="Add" onClick={onClick}/>
         </header>
     )
 }
