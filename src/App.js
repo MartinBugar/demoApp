@@ -1,11 +1,13 @@
 import HeaderFunctionBased from "./components/HeaderFunctionBased";
 // import HeaderClassBased from "./components/HeaderClassBased";
-import { useState } from 'react';
+import {useState} from 'react';
 import Tasks from "./components/Tasks";
+import {logDOM} from "@testing-library/react";
 
 
 //Function based component
 const App = () => {
+
     const [tasks, setTasks] = useState([
         {
             id: 1,
@@ -21,16 +23,22 @@ const App = () => {
         },
         {
             id: 3,
-            text: "Food shoping",
+            text: "Food shopping",
             day: "Feb 7th at 3:30pm",
             reminder: true,
         }
     ])
+
+    //Delete Task
+    const deleteTask = (id) => {
+        setTasks(tasks.filter((task) => task.id !== id ))
+    }
+
     return (
         <div className="container">
             <HeaderFunctionBased title={'Task Tracer'}/>
             {/*<HeaderClassBased/>*/}
-            <Tasks tasks={tasks}/>
+            <Tasks tasks={tasks} onDelete={deleteTask}/>
         </div>
     )
 }
