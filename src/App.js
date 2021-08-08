@@ -31,8 +31,12 @@ const App = () => {
         getTasks();
     }, [])
 
-    //Delete Task
-    const deleteTask = (id) => {
+    //Delete Task from the server
+    const deleteTask =  async (id) => {
+        //this delete it from the server
+        await fetch(`http://localhost:5000/tasks/${id}`, {method: 'DELETE'})
+
+        //this just hide it from the UI
         setTasks(tasks.filter((task) => task.id !== id))
     }
 
