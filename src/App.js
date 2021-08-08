@@ -40,10 +40,17 @@ const App = () => {
         setTasks(tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task))
     }
 
+    //Add task
+    const addTask = (task) => {
+        const id = Math.floor(Math.random() * 10000) + 1;
+        const newTask = {id, ...task };
+        setTasks([...tasks, newTask]);
+    }
+
     return (
         <div className="container">
             <HeaderFunctionBased title={'Task Tracer'}/>
-            <AddTask />
+            <AddTask onAdd={addTask}/>
             {/*<HeaderClassBased/>*/}
             {tasks.length > 0 ? (<Tasks tasks={tasks}
                                         onDelete={deleteTask}
