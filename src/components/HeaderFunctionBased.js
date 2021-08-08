@@ -4,15 +4,12 @@ import Button from "./Button";
 //Function base component
 const HeaderFunctionBased = (props) => {
 
-
-    const onClick = () => {
-        console.log("click");
-    }
-
     return (
         <header className="header">
             <h1>{props.title}</h1>
-            <Button color="black" text="Add" onClick={onClick}/>
+            <Button color={props.showAdd ? "red" : "black"}
+                    text={props.showAdd ? "Close" : "Add"}
+                    onClick={props.onAdd}/>
         </header>
     )
 }

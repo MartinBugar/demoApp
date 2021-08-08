@@ -9,6 +9,10 @@ import AddTask from "./components/AddTask";
 //Function based component
 const App = () => {
 
+    //Toggle task form
+    const [showAddTask, setShowAddTask] = useState(false);
+
+    //Initials Tasks
     const [tasks, setTasks] = useState([
         {
             id: 1,
@@ -49,8 +53,9 @@ const App = () => {
 
     return (
         <div className="container">
-            <HeaderFunctionBased title={'Task Tracer'}/>
-            <AddTask onAdd={addTask}/>
+            <HeaderFunctionBased title={'Task Tracer'} onAdd={() => setShowAddTask(!showAddTask)}  showAdd={showAddTask}/>
+            {/*skrateny ternarny operator bez else*/}
+            {showAddTask && <AddTask onAdd={addTask} />}
             {/*<HeaderClassBased/>*/}
             {tasks.length > 0 ? (<Tasks tasks={tasks}
                                         onDelete={deleteTask}
