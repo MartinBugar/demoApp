@@ -1,6 +1,6 @@
 import HeaderFunctionBased from "./components/HeaderFunctionBased";
 // import HeaderClassBased from "./components/HeaderClassBased";
-import {useState} from 'react';
+import { useState, useEffect } from 'react';
 import Tasks from "./components/Tasks";
 import {logDOM} from "@testing-library/react";
 import AddTask from "./components/AddTask";
@@ -14,6 +14,22 @@ const App = () => {
 
     //Initials Tasks
     const [tasks, setTasks] = useState([]);
+
+    //Fetch tasks from the server - GET
+    const fetchTasks = async () => {
+        const res = await fetch('http://localhost:5000/tasks');
+        const data = await res.json();
+        return data;
+    }
+
+    //Set tasks using useEfect
+    useEffect(() => {
+        const getTasks = async () => {
+            const tasksFromServer = await fetchTasks();
+            setTasks(tasksFromServer)
+        }
+        getTasks();
+    }, [])
 
     //Delete Task
     const deleteTask = (id) => {
