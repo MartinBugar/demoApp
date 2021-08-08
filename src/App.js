@@ -22,6 +22,13 @@ const App = () => {
         return data;
     }
 
+    //Fetch task from the server by id - GET
+    const fetchTask = async (id) => {
+        const res = await fetch(`http://localhost:5000/tasks/${id}`);
+        const data = await res.json();
+        return data;
+    }
+
     //Set tasks using useEfect
     useEffect(() => {
         const getTasks = async () => {
@@ -41,8 +48,24 @@ const App = () => {
     }
 
     //Toggle reminder
-    const toggleReminder = (id) => {
-        setTasks(tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task))
+    const toggleReminder = async (id) => {
+        //server site
+        const taskToToggle = await fetchTask(id)
+        const updTask = {...taskToToggle, reminder: !taskToToggle.reminder}
+
+        //PUT method to the Backend
+        const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(updTask)
+        })
+
+        const data = await res.json()
+
+        //UI
+        setTasks(tasks.map((task) => task.id === id ? {...task, reminder: data.reminder} : task))
     }
 
     //Add task to the server
