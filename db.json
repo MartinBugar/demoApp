@@ -4,13 +4,25 @@
       "id": 2,
       "text": "Meeting at school",
       "day": "Feb 6th at 1:30pm",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": 3,
       "text": "Food shopping",
       "day": "Feb 7th at 3:30pm",
-      "reminder": true
+      "reminder": false
+    },
+    {
+      "text": "assa",
+      "day": "asas",
+      "reminder": false,
+      "id": 4
+    },
+    {
+      "text": "mnbnm",
+      "day": "bnmbnm",
+      "reminder": false,
+      "id": 5
     }
   ]
 }
