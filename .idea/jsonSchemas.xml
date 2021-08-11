@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JsonSchemaMappingsProjectConfiguration">
+    <state>
+      <map>
+        <entry key="db">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="db" />
+              <option name="relativePathToSchema" value="db.json" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="db.json" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+      </map>
+    </state>
+  </component>
+</project>
